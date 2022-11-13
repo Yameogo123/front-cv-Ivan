@@ -10816,6 +10816,7 @@ body {
   margin-left: 18rem;
   min-height: 100vh;
   transition: all 0.3s linear;
+  cursor:'pointer'
 }
 
 @media (max-width: 767.98px) {
@@ -10828,6 +10829,7 @@ body {
 .page-holder.active {
   width: calc(100% - 50%);
   margin-left: 18rem;
+  cursor:'pointer';
 }
 
 /*
