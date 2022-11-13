@@ -23,7 +23,7 @@ export default function All(){
                             <button className="navbar-toggler navbar-toggler-end text-sm text-uppercase" type="button" 
                                 data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                                 aria-expanded="false" aria-label="Toggle navigation" >
-                                <svg className="svg-icon svg-icon-heavy svg-icon-sm text-dark">
+                                <svg className="svg-icon svg-icon-heavy svg-icon-sm text-dark" style={{cursor: "pointer"}}>
                                     <use xlinkHref="#menu-hamburger-1"> </use>
                                 </svg>
                             </button>
