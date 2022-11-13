@@ -61,6 +61,7 @@ export default function AdminExperience(){
         setLock(true)
         if(toupdate){
             exp= {...exp, id:current._id}
+            console.log(exp);
             update("experience", exp).then((rs)=>{
                 setMessage(rs.message);
                 setLock(false);

@@ -1,5 +1,5 @@
 import { Fetch } from "./Fetch";
-const ROOT= "https://cv-back.onrender.com"
+const ROOT= "https://mycv-back.herokuapp.com" //"https://cv-back.onrender.com"
 const token=localStorage.getItem("token") 
 
 export function loginCtrl(username, password){
@@ -7,7 +7,7 @@ export function loginCtrl(username, password){
         "username": username,
         "password": password
     }
-    return Fetch(ROOT+"/user/login", "POST", "", JSON.stringify(user));
+    return Fetch(ROOT+"/user/login", "POST", token, JSON.stringify(user));
 }
 
 
@@ -20,7 +20,7 @@ export function update(name, element){
 }
 
 export function getAll(name){
-    return Fetch(ROOT+"/"+name+"/all", "GET", token)
+    return Fetch(ROOT+"/"+name+"/all", "GET")
 }
 
 export function del(name, id){
@@ -28,5 +28,5 @@ export function del(name, id){
 }
 
 export function getUser(name){
-    return Fetch(ROOT+"/"+name+"/get/yameogoivan10@gmail.com", "GET", token)
+    return Fetch(ROOT+"/"+name+"/get/yameogoivan10@gmail.com", "GET")
 }

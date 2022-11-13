@@ -1,11 +1,9 @@
 import React from "react"
-import { useEffect } from "react"
 import { useState } from "react"
-import { add, getAll } from "../back/controller"
+import { add } from "../back/controller"
 
 export default function Contact(){
 
-    const [adresse, setadresse]= useState([])
     const [name, setname]= useState("")
     const [contact, setcontact]= useState("")
     const [subject, setsubject]= useState("")
@@ -26,12 +24,11 @@ export default function Contact(){
            }
            setmess("is sending")
            setHidden(true)
-           console.log(mes);
            add("message", mes).then(
             (rs)=>{
                 setmess(rs.message);
                 setHidden(false)
-                setTimeout(window.location.reload(), 10000);
+                setTimeout(()=>setmess(""), 10000);
             }
            ).catch((err)=>{
             setmess("something went wrong")
@@ -41,50 +38,15 @@ export default function Contact(){
         }
     }
 
-    useEffect(()=>{
-        getAll("adresse").then((rs)=>{
-          setadresse(rs)
-        }).catch((err)=>{
-          console.log(err);
-          setadresse([])
-        })
-      }, [])
-
     return (
-        <section className="section-contact section-wrapper gray-bg">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title">
-                            <h2>Contact</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    {adresse.map((ad)=>{
-                        return <div className="col-md-12" key={ad._id}>
-                            <address>
-                                <strong>Address</strong><br />
-                                {ad.mail}<br />
-                                {ad.town} - {ad.country}
-                            </address>
-                            
-                            <address>
-                                <strong>contact Number</strong><br />
-                                {ad.phone}
-                            </address>
-
-                            <address>
-                                <strong>Email</strong><br />
-                                <a href={"mailto:"+ad.mail}>{ad.mail}</a>
-                            </address>
-                        </div>
-                    })}
-                </div>
-                <div className="row">
+        <div>
+            <h2 className="h1">Contact</h2>
+            <p className="text-muted mb-4"></p>
+                <div className="row mb-4 gy-4">
+               
                     <div className="col-md-12">
                         <div className="feedback-form">
-                            <h2>Get in touch</h2>
+                            <h4>Get in touch</h4>
 
                             <form id="contactForm">
                                 <div className="form-group">
@@ -111,12 +73,13 @@ export default function Contact(){
                                     {mess}
                                 </span><br />
                                 {!hide && <button type="submit" className="btn btn-primary" onClick={(e)=>send(e)}>Send</button>} 
+                                <div className="badge badge-info bg-info">{mess}</div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        
         
     )
 }

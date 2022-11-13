@@ -108,7 +108,7 @@ export default function AdminProjet(){
                                   {projets !==[] ? projets.map(cert=>{
                                     return <tr key={cert._id}>
                                       <td className="py-1">
-                                        <img src={cert.image} alt="image1" />
+                                        <img src={cert.image} alt="image1" width={150} />
                                       </td>
                                       <td>{cert.title}</td>
                                       <td>{cert.date}</td>

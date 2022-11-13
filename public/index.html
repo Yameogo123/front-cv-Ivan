@@ -17,7 +17,16 @@
     <!-- web-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- gLightbox CSS-->
+    <link rel="stylesheet" href="vendor/glightbox/css/glightbox.min.css">
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&amp;display=swap">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/favicon.png">
 
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -26,17 +35,41 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   </head>
-  <body id="page-top" data-spy="scroll" data-target=".navbar">
+  <body >
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script src="js/jquery-2.1.4.min.js"></script>
-
-  <!-- Bootstrap -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/theia-sticky-sidebar.js"></script>
-  <script src="js/scripts.js"></script>
-
+   <!-- JavaScript files-->
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="vendor/masonry-layout/masonry.pkgd.min.js"></script>
+   <script src="vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+   <script src="vendor/glightbox/js/glightbox.min.js"></script>
+   <script src="js/front.js"></script>
+   <script>
+     // ------------------------------------------------------- //
+     //   Inject SVG Sprite - 
+     //   see more here 
+     //   https://css-tricks.com/ajaxing-svg-sprite/
+     // ------------------------------------------------------ //
+     function injectSvgSprite(path) {
+     
+         var ajax = new XMLHttpRequest();
+         ajax.open("GET", path, true);
+         ajax.send();
+         ajax.onload = function(e) {
+         var div = document.createElement("div");
+         div.className = 'd-none';
+         div.innerHTML = ajax.responseText;
+         document.body.insertBefore(div, document.body.childNodes[0]);
+         }
+     }
+     // this is set to BootstrapTemple website as you cannot 
+     // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+     // while using file:// protocol
+     // pls don't forget to change to your domain :)
+     injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
+     
+   </script>
   
   <script src="../assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
   <script src="../assets/vendors/chart.js/Chart.min.js"></script>
@@ -56,5 +89,9 @@
   <!-- endinject -->
   <!-- Custom js for this page -->
   <script src="../assets/js/dashboard.js"></script>
+
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+ 
   </body>
 </html>

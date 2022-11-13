@@ -1,21 +1,21 @@
 import React from "react"
-import Header from "./component/header";
 import Nav from "./component/nav";
-import "../../style/assets/vendors/flag-icon-css/css/flag-icon.min.css";
-import "../../style/assets/vendors/css/vendor.bundle.base.css";
-import "../../style/assets/vendors/jquery-bar-rating/css-stars.css";
-import "../../style/assets/vendors/font-awesome/css/font-awesome.min.css";
-import "../../style/assets/css/demo_1/style.css";
-import "../../style/assets/images/favicon.png";
-import "../../style/assets/vendors/mdi/css/materialdesignicons.min.css";
+import "../../style/assets/vendors/iconly/bold.css";
+import "../../style/assets/css/bootstrap.css";
+import "../../style/assets/vendors/perfect-scrollbar/perfect-scrollbar.css";
+import "../../style/assets/vendors/bootstrap-icons/bootstrap-icons.css";
+import "../../style/assets/vendors/simple-datatables/style.css";
+import "../../style/assets/css/app.css";
 import Footer from "./component/footer";
+import Header from "./component/header";
+
 
 
 export default function Admin(children){
 
     const logout=()=>{
         localStorage.clear()
-        window.location.assign("/resume/login")
+        window.location.assign("/login")
     }
 
     const isconnected= ()=>{
@@ -27,25 +27,11 @@ export default function Admin(children){
 
     function Vue() {
         if(isconnected()){
-            return <div className="container-scroller"> 
-            <Header />
+            return <div id="app"> 
             <Nav />
-            <div className="main-panel">
-                <div className="content-wrapper pb-0">
-                    <div className="page-header flex-wrap col-lg-10">
-                        <div className="header-left">
-                            <button className="btn btn-danger mb-2 mb-md-0 me-2" onClick={logout}>Log out</button>
-                        </div>
-                        <div className="header-right d-flex flex-wrap mt-2 mt-sm-0">
-                            <div className="d-flex align-items-center">
-                                <a href="/resume">
-                                    <p className="m-0 pe-3">Home</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {isconnected() && children}
-                </div>
+            <div id="main">
+                <Header />
+                {isconnected() && children}
                 <Footer />
             </div>
         </div>

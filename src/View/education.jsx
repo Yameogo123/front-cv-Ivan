@@ -15,30 +15,23 @@ export default function Education(){
     }, [])
 
     return (
-        <section className="section-wrapper section-education">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title"><h2>Education</h2></div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        {
-                            formation.map((f)=>{
-                                return <div className="content-item" key={f._id}>
-                                <small>{f.start} - {f.end}</small>
-                                <h3>{f.subject}</h3>
-                                <h4>{f.school}</h4>
-    
-                                <p>{f.place}</p>
-                            </div>
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
+        <div>
+            <h2 className="h1">Education</h2>
+            <p className="text-muted mb-4"></p>
+                <div className="row mb-4 gy-4">
+                    {
+                        formation.map((f)=>{
+                            return <div className="content-item" key={f._id}>
+                            <small>{f.start} - {f.end}</small>
+                            <h5>{f.subject}</h5>
+                            <h6>{f.school}</h6>
 
-        </section>
+                            <p>{f.place}</p>
+                        </div>
+                    })
+                }
+            </div>
+        </div>
+   
     )
 }

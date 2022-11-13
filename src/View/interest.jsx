@@ -16,36 +16,28 @@ export default function Interest(){
         })
     }, [])
 
+
     return (
-        <section className="section-wrapper section-interest gray-bg">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title">
-                            <h2>Certification</h2>
+        <div>
+            <h2 className="h1">Certifications</h2>
+            <p className="text-muted mb-4"></p>
+                <div className="row mb-4 gy-4">
+                {
+                    certifs.map((c)=>{
+                        return <div className="col-lg-4 col-md-6 grid-item m-2" key={c._id}>
+                        <h5>{c.title}</h5>
+                        <div className="portfolio-thumb">
+                            <img src={c.image ? c.image : 'img/default.png'} alt="image1" width={200} />
                         </div>
+                        <a className="" href={c.url} target="_blank" rel="noreferrer">{c.origin}</a>
                     </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-md-12">
-                        {
-                            certifs.map((c)=>{
-                                return <div className="content-item" key={c._id}>
-                                <h3>{c.title}</h3>
-                                <div className="portfolio-thumb">
-                                    <img src={c.image ? c.image : 'img/portfolio-2.jpg'} alt="image1" width={200} />
-                                </div>
-                                <a className="" href={c.url} target="_blank" rel="noreferrer">{c.origin}</a>
-                            </div>
-                            })
-                        }
+                    })
+                }
                         
-                    </div>
-                </div>
-
             </div>
-        </section>
+        </div>
+
+            
         
     )
 }

@@ -16,37 +16,26 @@ export default function Skill(){
     }, [])
 
     return (
-        <section className="section-wrapper skills-wrapper">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title">
-                            <h2>Skills</h2>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="progress-wrapper">
+        <div>
+            <h2 className="h1">Skills</h2>
+            <p className="text-muted mb-4"></p>
+                <div className="row mb-4 gy-4">
 
-                            {
-                                skill.map((sk)=>{
-                                    return <div className="progress-item mb-5" key={sk._id}>
-                                        <div className="progress">
-                                            <div className="progress-bar" role="progressbar" aria-valuenow={sk.percentage} aria-valuemin="0"
-                                                aria-valuemax="100" style={{width:sk.percentage+"%"}}><span className="progress-percent">{sk.percentage}</span>
-                                            </div>
-                                        </div>
-                                        <span className="progress-title">{sk.name}</span>
+                    {
+                        skill.map((sk)=>{
+                            return <div className="progress-item mb-2" key={sk._id}>
+                                <div className="progress">
+                                    <div className="progress-bar" role="progressbar" aria-valuenow={sk.percentage} aria-valuemin="0"
+                                        aria-valuemax="100" style={{width:sk.percentage+"%"}}><span className="progress-percent">{sk.percentage}</span>
                                     </div>
-                                })
-                            }
+                                </div>
+                                <span className="progress-title">{sk.name}</span>
+                            </div>
+                        })
+                    }
 
-                        </div>
-                    </div>
-                </div>
             </div>
-        </section>
+        </div>
         
     );
 }

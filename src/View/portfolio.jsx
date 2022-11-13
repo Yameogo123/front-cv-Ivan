@@ -16,33 +16,33 @@ export default function Portfolio(){
     }, [])
 
     return (
-        <section className="section-wrapper portfolio-section">
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="section-title">
-                            <h2>Portfolio</h2>
-                        </div>
-                    </div>
-                </div>
                 <div className="row">
                     {projets.map((project)=>{
-                        return <div className="col-md-6" key={project._id}>
-                            <a className="portfolio-item" href={project.link} target="_blank" rel="noreferrer">
-                                <div className="portfolio-thumb">
-                                    <img src={project.image ? project.image : 'img/portfolio-2.jpg'} alt="image1" />
-                                </div>
-
-                                <div className="portfolio-info">
-                                    <h3>{project.title}</h3>
-                                    <small>{project.link}</small>
-                                </div>
-                            </a>
+                        return <div className="col-lg-4 col-md-6 grid-item" key={project._id}>
+                        <div className="listing-item ps-0">
+                          <div className="position-relative">
+                            <ul className="list-inline listing-tags m-0">
+                              <li className="list-inline-item">
+                                <a className="reset-anchor fw-normal text-gray text-sm" href={project.link} target="_blank" rel="noreferrer">
+                                    {project.title}
+                                </a>
+                            </li>
+                            </ul><a className="reset-anchor d-block listing-img-holder" href={project.link} target="_blank" rel="noreferrer">
+                                <img className="img-fluid rounded-lg" src={project.image ? project.image : 'img/default.png'} alt="Treasure" width={350}/>
+                              <p className="mb-0 text-primary small d-flex align-items-center listing-btn"> <span>Look inside</span>
+                                <svg className="svg-icon text-primary svg-icon-sm ms-1">
+                                  <use xlinkHref="#arrow-right-1"> </use>
+                                </svg>
+                              </p></a>
+                          </div>
+                          <div className="py-3"><a className="reset-anchor"  href={project.link} target="_blank" rel="noreferrer">
+                              <h2 className="h5 listing-item-heading">{project.title}</h2></a>
+                            <p className="text-sm mb-0 listing-item-description">{project.link}</p>
+                          </div>
                         </div>
+                      </div>
                     })}
                 </div>
-            </div>
-        </section>
         
     );
 }

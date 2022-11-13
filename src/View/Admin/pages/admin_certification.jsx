@@ -103,7 +103,7 @@ export default function AdminCertification(){
                                   {certifs !==[] ? certifs.map(cert=>{
                                     return <tr key={cert._id}>
                                       <td className="py-1">
-                                        <img src={cert.image} alt="image1" />
+                                        <img src={cert.image} alt="image1" width={150} />
                                       </td>
                                       <td>{cert.title}</td>
                                       <td>{cert.origin}</td>
@@ -112,7 +112,7 @@ export default function AdminCertification(){
                                       </td>
                                       <td>
                                           <button className="btn btn-danger m-1" onClick={()=>remove(cert._id)}>Delete</button>
-                                          <button className="btn btn-warning" onClick={()=>setCurrentCertif(cert)}>Update</button>
+                                          <button className="btn btn-warning" onClick={()=>{setCurrentCertif(cert); setAdd(true)}}>Update</button>
                                       </td>
                                   </tr>
                                   }): <tr>

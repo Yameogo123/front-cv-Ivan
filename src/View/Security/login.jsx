@@ -10,17 +10,18 @@ export default function Login(){
 
     const login=()=>{
         if(username!=="" && password!==""){
+
             loginCtrl(username, password).then(
                 (rs)=>{
                     setMessage("")
                     localStorage.setItem("admin", JSON.stringify(rs["user"]))
                     localStorage.setItem("token", rs["token"])
                     localStorage.setItem("date", (new Date()).getDate())
-                    window.location.assign("/resume/admin/skill")
+                    window.location.assign("/admin/skill")
                 }
             ).catch(
                 err=>{
-                    console.log("erreur"+err);
+                    console.log("erreur"+ err);
                     setMessage("check your info");
                 }
             )
@@ -43,6 +44,7 @@ export default function Login(){
                                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                                                 style={{width: "185px"}} alt="logo" />
                                             <h4 className="mt-1 mb-5 pb-1">back of resume app</h4>
+                                            <a className="btn btn-info m-2" href="/">home page</a>
                                         </div>
 
                                         <form>
