@@ -10826,7 +10826,7 @@ body {
 }
 
 .page-holder.active {
-  width: calc(100% - $sidebar-width);
+  width: calc(100% - #{$sidebar-width});
   margin-left: 18rem;
 }
 
