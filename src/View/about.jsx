@@ -21,7 +21,9 @@ export default function About(){
                         <nav className="navbar navbar-expand-lg navbar-light px-0">
                             <button className="navbar-toggler navbar-toggler-end text-sm text-uppercase" type="button" 
                                 data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-                                aria-expanded="false" aria-label="Toggle navigation" >
+                                aria-expanded="false" aria-label="Toggle navigation" onClick={()=>{
+                                    document.querySelector(".sidebar").classList.toggle("active");
+                                    document.querySelector(".page-holder").classList.toggle("active");}}>
                                 <svg className="svg-icon svg-icon-heavy svg-icon-sm text-dark">
                                     <use xlinkHref="#menu-hamburger-1"> </use>
                                 </svg>
