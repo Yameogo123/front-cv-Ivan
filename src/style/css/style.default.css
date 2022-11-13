@@ -10812,7 +10812,7 @@ body {
 }
 
 .page-holder {
-  width: calc(100% - $sidebar-width);
+  width: calc(100% - sidebar-width);
   margin-left: 18rem;
   min-height: 100vh;
   transition: all 0.3s linear;
@@ -10826,7 +10826,7 @@ body {
 }
 
 .page-holder.active {
-  width: calc(100% - #{$sidebar-width});
+  width: calc(100% - sidebar-width);
   margin-left: 18rem;
 }
 
